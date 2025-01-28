@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--Meta Tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Mariana" />
+    <meta name="keywords" content="Ecommerce, Shop, Store" />
+    <meta name="description" content="Ecommerce - Ecommerce Shop Html Template" />
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="assets/images/logo.ico" type="image/x-icon" />
+
+    <!--Title-->
+    <title>Ecommerce | Products</title>
+
+    <!-- Style Link -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <!-- Boxicons CSS Cdn Link-->
+    <link href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" rel="stylesheet" />
+
+    <!-- Inter & Manrope Fonts Cdn Link-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Header Start-->
+    <header>
+        <!-- Home Page Offer -->
+        <div class="page-offer">
+            <p>Get 25% OFF on your first order. Order Now</p>
+        </div>
+
+        <!-- Navbar Start-->
+        <nav>
+            <div class="container">
+                <!-- Navbar Brand -->
+                <div class="navbar-brand">
+                    <img src="./assets/images/logo.png" loading="lazy" alt="logo img">
+                    <a href="./index.html">Ecommerce</a>
+                </div>
+
+                <!-- Navbar List -->
+                <ul class="navbar-list">
+                    <li class="navbar-item">
+                        <a href="./index.html">home</a>
+                    </li>
+
+                    <li class="navbar-item dropdown">
+                        <a href="#">categories <i class="bx bx-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <!-- <li><a href="#">Electronics</a></li> -->
+                        </ul>
+                    </li>
+
+                    <li class="navbar-item">
+                        <a href="./index.html">about</a>
+                    </li>
+
+                    <li class="navbar-item">
+                        <a href="./index.html">contact</a>
+                    </li>
+                </ul>
+
+                <!-- Navbar Notifications -->
+                <div class="navbar-notifications">
+                    <!-- Navbar Search -->
+                    <form class="search-box">
+                        <button><i class='bx bx-search'></i></button>
+                        <input type="text" placeholder="Search products">
+                    </form>
+
+                    <ul>
+                        <li>
+                            <a href="#"><i class='bx bx-cart-alt'></i></a>
+                        </li>
+
+                        <li>
+                            <a href="#"><i class='bx bx-user-circle'></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- /.Navbar End-->
+    </header>
+    <!-- /.Header End-->
+
+
+    <!-- Main Start-->
+    <main>
+        <!--Breadcrumb Start-->
+        <section class="breadcrumb">
+            <div class="container">
+                <div class="breadcrumb-items">
+                    <span>products</span>
+                    <span class="icon"> / </span>
+                    <span class="active breadcrumb-category "></span>
+                </div>
+            </div>
+        </section>
+        <!--/.Breadcrumb End-->
+
+        <!--Products Start-->
+        <section class="all-products">
+            <div class="container">
+                <div class="products-categories">
+                    <!-- <div class="category">
+                        <ul>
+                         
+                        </ul>
+                    </div> -->
+                    <div class="products"></div>
+                </div>
+            </div>
+        </section>
+        <!--/.Products Start-->
+    </main>
+    <!-- /. Main End-->
+
+
+    <!-- Footer Start-->
+    <footer>
+        <p>
+            &copy; 2024 Copyright by Mariana ❤️
+        </p>
+    </footer>
+    <!-- /. Footer End-->
+
+    <!--Axios C Link-->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <!--JS Link-->
+    <script src="assets/js/products.js"></script>
+</body>
+
+</html>
