@@ -124,3 +124,50 @@ const displayProducts = async () => {
 };
 
 displayProducts();
+
+const allProductsButton = document.querySelector(".products-title");
+
+const fetchAllProducts = async () => {
+  const productsContainer = document.querySelector(".products");
+  const allProductsContainer = document.querySelector(".products.all-products-cards");
+
+  const skeletons = Array(6).fill(`<div class="card loader"></div>`).join("");
+  allProductsContainer.innerHTML = skeletons;
+  productsContainer.innerHTML = `<div></div>`;
+
+  try {
+    const { data } = await axios.get(`${apiUrl}`);
+
+    // Generate Product Cards
+    const cards = data
+      .map(
+        (product) => `
+              <div class="card">
+                  <div class="card-image">
+                      <button class="add-to-wishlist"><i class='bx bx-heart'></i></button>
+                      <img src="${product.image}" alt="${product.title}">
+                      <button class="add-to-cart">add to cart <i class='bx bx-cart'></i></button>
+                  </div>
+                  <div class="card-body">
+                      <p><a href="./product-details.html?id=${product.id}">
+                          ${product.title.slice(0, 50)}${
+          product.title.length > 50 ? "..." : ""
+        }
+                      </a></p>
+                      <p>${product.price} $</p>
+                  </div>
+              </div>
+              `
+      )
+      .join("");
+
+    // Replace Skeleton Loaders with Actual Data
+    allProductsContainer.innerHTML = cards;
+  } catch (error) {
+    console.error("Error fetching all products:", error);
+    allProductsContainer.innerHTML = "<p>Failed to load products.</p>";
+  }
+};
+
+// Attach click event to "All Products"
+allProductsButton.addEventListener("click", fetchAllProducts);

@@ -73,7 +73,7 @@ const fetchCategoryData = async (category) => {
             <p><a href="./product-details.html?id=${product.id}">
               ${product.title.slice(0, 50)}${product.title.length > 50 ? "..." : ""}
             </a></p>
-            <p>${product.price}</p>
+            <p>${product.price} $</p>
           </div>
         </div>
       `
