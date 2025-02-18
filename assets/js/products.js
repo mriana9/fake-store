@@ -29,7 +29,6 @@ const displayCategoriesDropdownItem = async () => {
 
 displayCategoriesDropdownItem();
 
-
 //Show Breadcrumbs Title
 const getCategoryName = async () => {
   const urlParams = new URLSearchParams(window.location.search);
@@ -85,23 +84,43 @@ const getCategoryDetails = async () => {
 };
 
 const displayProducts = async () => {
-  const products = await getCategoryDetails();
+  const productsContainer = document.querySelector(".products");
 
-  const result = products
-    .map(
-      (product) => `
+  // Show Skeleton Loaders before fetching data
+  const skeletons = Array(6) // Adjust number of skeletons
+    .fill(
+      `
+      <div class="product-card loader"></div>
+    `
+    )
+    .join("");
+
+  productsContainer.innerHTML = skeletons;
+
+  try {
+    const products = await getCategoryDetails();
+
+    // Generate Product Cards
+    const result = products
+      .map(
+        (product) => `
           <div class="product-card">
             <img src="${product.image}" alt="${product.title}"/>
             <div>
                 <h2>${product.title}</h2>
                 <p class="price">Price: ${product.price}</p>
-                <p cl><a href="./product-details.html?id=${product.id}">details <i class='bx bxs-right-arrow-alt'></i></a></p>
+                <p><a href="./product-details.html?id=${product.id}">details <i class='bx bxs-right-arrow-alt'></i></a></p>
             </div>
           </div>`
-    )
-    .join("");
+      )
+      .join("");
 
-  document.querySelector(".products").innerHTML = result;
+    // Replace Skeleton Loaders with Actual Data
+    productsContainer.innerHTML = result;
+  } catch (error) {
+    console.error("Error fetching product data:", error);
+    productsContainer.innerHTML = "<p>Failed to load products.</p>";
+  }
 };
 
 displayProducts();

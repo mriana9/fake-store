@@ -48,34 +48,58 @@ const getProductDetails = async () => {
 //getProductDetails();
 
 const displayProductDetails = async () => {
-  const product = await getProductDetails();
-  const fullStars = Math.floor(product.rating.rate);
-  const halfStar = product.rating.rate % 1 >= 0.5 ? 1 : 0;
-  const emptyStars = 5 - fullStars - halfStar;
+  const detailsContainer = document.querySelector(
+    ".products-details .container"
+  );
 
-  const starIcons = `
-    ${'<i class="bx bxs-star"></i>'.repeat(fullStars)} 
-    ${halfStar ? '<i class="bx bxs-star-half"></i>' : ""} 
-    ${'<i class="bx bx-star"></i>'.repeat(emptyStars)}
+  // Show Skeleton Loader before fetching data
+  const skeleton = `
+    <div class="product-details-card loader">
+      <div class="image-loader"></div>
+      <div class="text-loader title-loader"></div>
+      <div class="text-loader price-loader"></div>
+      <div class="text-loader description-loader"></div>
+      <div class="text-loader category-loader"></div>
+      <div class="text-loader rating-loader"></div>
+    </div>
   `;
 
-  const result = `
-        <div class="product-details-card">
-          <img src="${product.image}" alt="${product.title}"/>
-          <div>
-              <h2>${product.title}</h2>
-              <p class="price">Price: $${product.price}</p>
-              <p class="description">${product.description}</p>
-              <div class="category">Category: <span>${product.category}</span></div>
-              <div class="rating">
-                  <p class="stars">${starIcons}</p>
-                  <p class="reviews" >Based on : <span>${product.rating.count}</span> reviews</p>
-              </div>
-          </div>
-        </div>
+  detailsContainer.innerHTML = skeleton;
+
+  try {
+    const product = await getProductDetails();
+    const fullStars = Math.floor(product.rating.rate);
+    const halfStar = product.rating.rate % 1 >= 0.5 ? 1 : 0;
+    const emptyStars = 5 - fullStars - halfStar;
+
+    const starIcons = `
+      ${'<i class="bx bxs-star"></i>'.repeat(fullStars)} 
+      ${halfStar ? '<i class="bx bxs-star-half"></i>' : ""} 
+      ${'<i class="bx bx-star"></i>'.repeat(emptyStars)}
     `;
 
-  document.querySelector(".products-details .container").innerHTML = result;
+    const result = `
+      <div class="product-details-card">
+        <img src="${product.image}" alt="${product.title}"/>
+        <div>
+          <h2>${product.title}</h2>
+          <p class="price">Price: $${product.price}</p>
+          <p class="description">${product.description}</p>
+          <div class="category">Category: <span>${product.category}</span></div>
+          <div class="rating">
+            <p class="stars">${starIcons}</p>
+            <p class="reviews">Based on: <span>${product.rating.count}</span> reviews</p>
+          </div>
+        </div>
+      </div>
+    `;
+
+    // Replace Skeleton Loader with Actual Data
+    detailsContainer.innerHTML = result;
+  } catch (error) {
+    console.error("Error fetching product details:", error);
+    detailsContainer.innerHTML = "<p>Failed to load product details.</p>";
+  }
 };
 
 displayProductDetails();

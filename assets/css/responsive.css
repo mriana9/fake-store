@@ -1,0 +1,32 @@
+@media screen and (max-width: 1024px) {
+  .search-box,
+  .navbar-list {
+    display: none !important;
+  }
+
+  .hero {
+    min-height: 80vh;
+  }
+
+  .all-products .product-card,
+  .product-details-card,
+  .tabs-btns,
+  .hero .row {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .tabs-btns {
+    width: 100%;
+    gap: 15px !important;
+  }
+
+  .best-selling .tabs-cards .card,
+  .hero .row .col {
+    width: 100% !important;
+  }
+
+  .hero .image {
+    position: static;
+  }
+}
