@@ -278,20 +278,20 @@ header nav .navbar-notifications ul a:hover {
   padding: 50px 0px;
 }
 
-.best-selling .primary-title {
+.primary-title {
   text-align: center;
   text-transform: capitalize;
   font-family: "Inter", serif;
 }
 
-.best-selling .primary-title span {
+.primary-title span {
   color: #878a92;
   font-size: 12px;
   line-height: 24px;
   font-weight: 300;
 }
 
-.best-selling .primary-title h3 {
+.primary-title h3 {
   color: var(--primary-color);
   font-size: 24px;
   font-weight: 900;
@@ -324,6 +324,14 @@ header nav .navbar-notifications ul a:hover {
   align-items: center;
   gap: 40px;
   justify-content: center;
+}
+
+.all-products {
+  min-height: 100vh;
+}
+
+.all-products-cards {
+  margin-top: 50px;
 }
 
 .all-products-cards .card,
@@ -600,4 +608,61 @@ footer {
   to {
     background-position: 100% 0, 0 0, 15px 150px, 15px 180px;
   }
+}
+
+.modal {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.modal-content {
+  width: 50%;
+  height: 60%;
+  border-radius: 12px;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.disabled {
+  display: none !important;
+}
+
+.pagination {
+  width: 100%;
+  display: flex;
+  gap: 20px;
+  margin-top: 40px;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagination .page-item button{
+  font-weight: 500;
+  font-size: 20px;
+  outline: none;
+  background-color: transparent;
+  color: var(--primary-color);
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: 1px solid #e6e7e8;
+}
+
+.page-item.active,
+.pagination .page-item:hover {
+  background-color: #e6e7e8;
+  border-radius: 6px;
 }

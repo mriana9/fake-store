@@ -10,6 +10,7 @@
 
   .all-products .product-card,
   .product-details-card,
+  .all-products-card,
   .tabs-btns,
   .hero .row {
     display: flex !important;
@@ -22,11 +23,26 @@
   }
 
   .best-selling .tabs-cards .card,
+  .all-products .card,
   .hero .row .col {
     width: 100% !important;
   }
 
   .hero .image {
     position: static;
+  }
+
+  .modal-content {
+    width: 90%;
+    height: 60%;
+  }
+}
+
+
+@media screen and (min-width: 912px) and (max-width:1024px) {
+  .best-selling .tabs-cards .card,
+  .all-products .card,
+  .hero .row .col {
+    width: 50% !important;
   }
 }

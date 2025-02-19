@@ -41,7 +41,7 @@ const getProductId = async () => {
 const getProductDetails = async () => {
   const productId = await getProductId();
   const { data } = await axios.get(`${apiUrl}/${productId}`);
-  console.log(data);
+  //console.log(data);
   return data;
 };
 

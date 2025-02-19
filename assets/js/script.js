@@ -51,9 +51,7 @@ const fetchCategoryData = async (category) => {
   const tabsCards = document.querySelector(".best-selling-tabs .tabs-cards");
 
   // Show Skeleton Loaders before fetching data
-  const skeletons = Array(6)
-    .fill(`<div class="card loader"></div>`)
-    .join("");
+  const skeletons = Array(6).fill(`<div class="card loader"></div>`).join("");
   tabsCards.innerHTML = skeletons;
 
   try {
@@ -71,7 +69,9 @@ const fetchCategoryData = async (category) => {
           </div>
           <div class="card-body">
             <p><a href="./product-details.html?id=${product.id}">
-              ${product.title.slice(0, 50)}${product.title.length > 50 ? "..." : ""}
+              ${product.title.slice(0, 50)}${
+          product.title.length > 50 ? "..." : ""
+        }
             </a></p>
             <p>${product.price} $</p>
           </div>
